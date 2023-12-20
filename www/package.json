@@ -1,7 +1,7 @@
 {
-  "name": "wasm-game-of-life-app",
+  "name": "wasm-toy-gp",
   "version": "0.1.0",
-  "description": "WASM-based Game of Life application",
+  "description": "WASM-based Gaussian process toy app",
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.config.js",
