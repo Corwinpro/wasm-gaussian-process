@@ -11,12 +11,10 @@ module.exports = {
   // plugins: [new CopyWebpackPlugin(["index.html"])],
   plugins: [
     new CopyPlugin({
-      patterns: [
-        { from: "index.html" },
-      ],
+      patterns: [{ from: "index.html" }],
     }),
   ],
   experiments: {
-    asyncWebAssembly: true
-  }
+    asyncWebAssembly: true,
+  },
 };

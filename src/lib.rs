@@ -49,11 +49,23 @@ impl Sampler {
 
     pub fn get_samples(&self) -> Float64Array {
         // samples from the distribution
-        let new_inputs = Sampler::grid();
+        let new_inputs: Vec<Vec<f64>> = Sampler::grid();
         let sampler = self.gp.sample_at(&new_inputs);
         let mut rng = rand::thread_rng();
         let sample = sampler.sample(&mut rng);
         Float64Array::from(&sample[..])
+    }
+
+    pub fn mean(&self) -> Float64Array {
+        let new_inputs: Vec<Vec<f64>> = Sampler::grid();
+        let mean = self.gp.predict(&new_inputs);
+        Float64Array::from(&mean[..])
+    }
+
+    pub fn variance(&self) -> Float64Array {
+        let new_inputs: Vec<Vec<f64>> = Sampler::grid();
+        let var = self.gp.predict_variance(&new_inputs);
+        Float64Array::from(&var[..])
     }
 
     pub fn get_inputs(&self) -> Float64Array {
